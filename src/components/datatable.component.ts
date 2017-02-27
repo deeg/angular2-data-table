@@ -263,7 +263,39 @@ export class DatatableComponent implements OnInit, AfterViewInit, DoCheck {
    * @type {number}
    * @memberOf DatatableComponent
    */
-  @Input() offset: number = 0;
+  @Input() set offset(val: any) {
+    console.log('changing offset');
+    console.log(val);
+    this._offset = val;
+  }
+
+  /**
+   * Gets the count.
+   *
+   * @readonly
+   * @type {number}
+   * @memberOf DatatableComponent
+   */
+  get offset(): any {
+    return this._offset;
+  }
+
+  @Input() set testOffset(val: any) {
+    console.log('changing test offset');
+    console.log(val);
+    this._testOffset = val;
+  }
+
+  /**
+   * Gets the count.
+   *
+   * @readonly
+   * @type {number}
+   * @memberOf DatatableComponent
+   */
+  get testOffset(): any {
+    return this._testOffset;
+  }
 
   /**
    * Show the linear loading bar.
@@ -649,6 +681,8 @@ export class DatatableComponent implements OnInit, AfterViewInit, DoCheck {
   offsetX: number = 0;
   rowDiffer: IterableDiffer;
   _count: number = 0;
+  _offset: number = 0;
+  _testOffset: any;
 
   _rows: any[];
   _columns: any[];

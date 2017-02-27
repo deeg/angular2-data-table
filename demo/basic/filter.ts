@@ -13,6 +13,8 @@ import { Component } from '@angular/core';
       />
       <ngx-datatable
         class='material'
+        [offset]="testOffset.value"
+        [testOffset]="testOffset"
         [columns]="columns"
         [columnMode]="'force'"
         [headerHeight]="50"
@@ -29,6 +31,8 @@ export class FilterBarComponent {
   rows = [];
 
   temp = [];
+
+  testOffset = {value: 0};
 
   columns = [
     { prop: 'name' },
@@ -67,6 +71,7 @@ export class FilterBarComponent {
 
     // update the rows
     this.rows = temp;
+    this.testOffset = {value: 0}
   }
 
 }
